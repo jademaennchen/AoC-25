@@ -13,9 +13,8 @@ while(not done):
         if adjacent[y, x] < 5:
             p2, done = p2 + 1, False
             removable.add((y, x))
-            for dy in (-1, 0, 1):
-                for dx in (-1, 0, 1):
-                    if (y+dy, x+dx) in adjacent: adjacent[y+dy, x+dx] -= 1
+            for dy, dx in ((-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)):
+                if (y+dy, x+dx) in adjacent: adjacent[y+dy, x+dx] -= 1
     for y, x in removable: adjacent.pop((y, x))
 
 print(p1), print(p2)
